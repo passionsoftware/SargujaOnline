@@ -1,0 +1,132 @@
+﻿@model List<News.Datamodel.NewsUserModel>
+
+
+<div class="tab01 p-b-20">
+    <div class="tab01-head how2 how2-cl1 bocl12 flex-s-c m-r-10 m-r-0-sr991">
+        <!-- Brand tab -->
+        <h3 class="f1-m-2 cl12 tab01-title">
+            जिला
+        </h3>
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+
+            @if (Model.Where(m => m.NewsType == "SargujaSpecial").Count() > 0)
+            {
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#tab1-1" role="tab">सरगुजा</a>
+                </li>
+            }
+
+            @if (Model.Where(m => m.NewsType == "SurajpurSpecial").Count() > 0)
+            {
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#tab1-2" role="tab">सूरजपुर</a>
+                </li>
+            }
+            @if (Model.Where(m => m.NewsType == "BalrampurSpecial").Count() > 0)
+            {
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#tab1-3" role="tab">बलरामपुर</a>
+                </li>
+            }
+
+            @if (Model.Where(m => m.NewsType == "KoriaSpecial").Count() > 0)
+            {
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#tab1-4" role="tab">कोरिया</a>
+                </li>
+            }
+
+            @if (Model.Where(m => m.NewsType == "JaspurSpecial").Count() > 0)
+            {
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#tab1-5" role="tab">जशपुर</a>
+                </li>
+            }
+
+            @if (Model.Where(m => m.NewsType == "KorbaSpecial").Count() > 0 || Model.Where(m => m.NewsType == "RaigadSpecial").Count() > 0)
+            {
+                <li class="nav-item-more dropdown dis-none">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        @if (Model.Where(m => m.NewsType == "KorbaSpecial").Count() > 0)
+                        {
+                            <li><a class="nav-link" data-toggle="tab" href="#tab1-6" role="tab">कोरबा</a></li>
+                        }
+                        @if (Model.Where(m => m.NewsType == "RaigadSpecial").Count() > 0)
+                        {
+                            <li><a class="nav-link" data-toggle="tab" href="#tab1-7" role="tab">रायगढ़</a></li>
+                        }
+                    </ul>
+                </li>
+            }
+        </ul>
+    </div>
+
+
+    <!-- Tab panes -->
+    <div class="tab-content p-t-35">
+        <!-- - -->
+        <div class="tab-pane fade show active" id="tab1-1" role="tabpanel">
+            @if (@Model.Where(m => m.NewsType == "SargujaSpecial").Count() > 0)
+            {
+                @Html.Partial("_WindownChild", @Model.Where(m => m.NewsType == "SargujaSpecial").ToList())
+            }
+            </div>
+            <!-- - -->
+        <div class="tab-pane fade" id="tab1-2" role="tabpanel">
+            @if (@Model.Where(m => m.NewsType == "SurajpurSpecial").Count() > 0)
+            {
+                @Html.Partial("_WindownChild", @Model.Where(m => m.NewsType == "SurajpurSpecial").ToList())
+            }
+            </div>
+
+            <!-- - -->
+        <div class="tab-pane fade" id="tab1-3" role="tabpanel">
+            @if (@Model.Where(m => m.NewsType == "BalrampurSpecial").Count() > 0)
+            {
+                @Html.Partial("_WindownChild", @Model.Where(m => m.NewsType == "BalrampurSpecial").ToList())
+            }
+            </div>
+
+            <!-- - -->
+        <div class="tab-pane fade" id="tab1-4" role="tabpanel">
+            @if (@Model.Where(m => m.NewsType == "KoriaSpecial").Count() > 0)
+            {
+                @Html.Partial("_WindownChild", @Model.Where(m => m.NewsType == "KoriaSpecial").ToList())
+            }
+
+            </div>
+
+            <!-- - -->
+        <div class="tab-pane fade" id="tab1-5" role="tabpanel">
+            @if (@Model.Where(m => m.NewsType == "JaspurSpecial").Count() > 0)
+            {
+                Html.Partial("_WindownChild", @Model.Where(m => m.NewsType == "JaspurSpecial").ToList());
+            }
+        </div>
+
+            <!-- Tab 6-->
+        <div class="tab-pane fade" id="tab1-6" role="tabpanel">
+            @if (@Model.Where(m => m.NewsType == "KorbaSpecial").Count() > 0)
+            {
+                @Html.Partial("_WindownChild", @Model.Where(m => m.NewsType == "KorbaSpecial").ToList())
+            }
+
+            </div>
+            <!-- Tab 7-->
+        <div class="tab-pane fade" id="tab1-7" role="tabpanel">
+            @if (@Model.Where(m => m.NewsType == "RaigadSpecial").Count() > 0)
+            {
+                Html.Partial("_WindownChild", @Model.Where(m => m.NewsType == "RaigadSpecial").ToList());
+            }
+
+            </div>
+        </div>
+    </div>

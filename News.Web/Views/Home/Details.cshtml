@@ -1,0 +1,103 @@
+﻿@model News.Datamodel.NewsUserDetailVM
+
+@{
+    ViewBag.Title = Model.NewsDetails.Catergory + "-" + Model.NewsDetails.NewsSubject;
+    ViewBag.Keyword = "Chhattisgarh Sarguja, Sarguja Online, Sarguja University, Sarguja News, सरगुजा ऑनलाइन, सरगुजा ," + Model.NewsDetails.Catergory;
+    ViewBag.Description = Model.NewsDetails.Catergory + ":" + Model.NewsDetails.NewsSubject;
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<section class="bg0 p-t-30 p-b-35">
+    <div class="container" title="Sarguja Online">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8 p-b-20">
+                @*@Html.Partial("_bannerfourth")
+        <br />*@
+                <h2 class="p-b-5" style="font-size:30px;font-weight:bolder" title="Sarguja University">
+                    @Model.NewsDetails.NewsSubject
+                </h2>
+
+
+                <a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
+                    द्वारा  : <b> @Model.NewsDetails.CreatedBy </b>
+                </a>
+                &nbsp;| &nbsp;
+
+                <span class="f1-s-3" style="color:grey" title="Sarguja News">
+                    तारीख: <b>  @String.Format("{0:dd MMM yyyy hh:mm}", Model.NewsDetails.CreatedDate)</b>
+                </span>
+                &nbsp;| &nbsp;
+                <span class="f1-s-3" title="Sarguja News">
+                    <i class="fa fa-eye"></i> &nbsp; <b> @(Model.NewsDetails.NoOfView * 5 ) </b>
+                </span>
+                <br />
+
+                <img src="../@Model.NewsDetails.NewsImage" alt="IMG" class="col-md-10 col-lg-8 p-b-20">
+
+
+                @Html.Raw(Model.NewsDetails.NewsBody)
+                <br />
+
+                <div class="col-md-12 text-left">
+
+                    <a title="Sarguja Online" href="whatsapp://send?text=@(Model.NewsDetails.NewsSubject)%0a*पूर्ण रूप से आप यहाँ देख सकते हैं*
+            http://sargujaonline.com/Details/@Model.NewsDetails.NewsId %0a%0a%0a*Beti Bachao Beti Padhao*%0ahttps://wcd.nic.in/bbbp-schemes%0a%0a*Swachh Bharat Mission*%0ahttps://swachhbharatmission.gov.in/" data-text="@(Model.NewsDetails.NewsSubject + " on " + string.Format("{0:dd-MM-yyyy}", @Model.NewsDetails.CreatedDate))" class="wa_btn wa_btn_s"
+                       data-href="http://sargujaonline.com/Details/@Model.NewsDetails.NewsId"
+                       onClick="ga('send', 'event', { eventCategory: 'Social', eventAction: 'Share', eventLabel: 'WhatsAppShare', eventValue: 0});">
+                        <button class="btn btn-success" style="height: 27px; margin-bottom: 10px;text-align: center;font-weight: bolder;padding: 5px;
+    width: 50px;">
+                            <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                        </button>
+                    </a>
+
+                    <div class="fb-like" data-href="http://sargujaonline.com/Details/@Model.NewsDetails.NewsId" data-layout="button_count"
+                         data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+
+
+                </div>
+                <div class="fb-comments" width="100%"
+                     data-href="http://sargujaonline.com/Details/@Model.NewsDetails.NewsId" data-numposts="5"></div>
+                <br />
+                <div class="col-md-12 col-lg-12 p-b-10 p-t-20">
+                    @Html.Partial("_Bannerfive")
+                </div>
+                <br />
+                <!-- Sarguja Online-->
+                <br />
+                <div class="how2 how2-cl4 flex-s-c">
+                    <h3 class="f1-m-2 cl3 tab01-title">
+                        सामान्य समाचार
+                    </h3>
+                </div>
+                @Html.Partial("_CategoryTopSix", Model.AllNews)
+
+            </div>
+            <div class="col-md-10 col-lg-4">
+                <div class="p-l-10 p-rl-0-sr991 p-b-20">
+                    <!--Top News -->
+                    @Html.Partial("_IMostPoular", Model.AllNews)
+
+                    <!-- Tag -->
+                    @Html.Partial("_ITags", Model.Tags)
+
+                    <!-- Subscribe  -->
+                    @*Html.Partial("_StayConnected")*@
+
+                    @Html.Partial("_BannerSecond")
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.11';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>

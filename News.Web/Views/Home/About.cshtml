@@ -1,0 +1,84 @@
+﻿@model News.Datamodel.NewsUserVM
+
+@{
+    ViewBag.Title = "हमारे बारे में";
+}
+
+
+<!-- Page heading -->
+<div class="container p-t-4 p-b-10">
+    <h2 class="f1-l-1 cl2">
+        <br />
+        हमारे बारे में
+    </h2>
+</div>
+
+<!-- Breadcrumb -->
+<div class="container">
+    <div class="headline bg0 flex-wr-sb-c p-rl-20 p-tb-8">
+        <div class="f2-s-1 p-r-30 m-tb-6">
+            <a href="@Url.Action("index")" class="breadcrumb-item f1-s-3 cl9">
+                होम
+            </a>
+
+            <span class="breadcrumb-item f1-s-3 cl9">
+                बारे में
+            </span>
+        </div>
+
+        @*<div class="pos-relative size-a-2 bo-1-rad-22 of-hidden bocl11 m-tb-6">
+                <input class="f1-s-1 cl6 plh9 s-full p-l-25 p-r-45" type="text" name="search" placeholder="Search">
+                <button class="flex-c-c size-a-1 ab-t-r fs-20 cl2 hov-cl10 trans-03">
+                    <i class="zmdi zmdi-search"></i>
+                </button>
+            </div>*@
+    </div>
+</div>
+
+<!-- Content -->
+<section class="bg0 p-b-110">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-7 col-lg-8 p-b-30">
+                <div class="p-r-10 p-r-0-sr991">
+                    <p class="f1-s-11 cl6 p-b-25">
+                        सरगुजा ऑनलाइन; एक समाचार पोर्टल है इसमे आपको सरगुजा, आस पास, देश, दुनिया  होने वाली उकत गतिविदीहियो की जानकारी देने के अभिप्राय से बनाया गया है|
+                        हमारा बस एक उद्देस्य था की लोगो को <b> सटीक और सरल </b> भाषा मे समाचार देना |
+                    </p>
+
+                    <p class="f1-s-11 cl6 p-b-25">
+                        सरगुजा ऑनलाइन श्री रमा शंकर पाण्डेय की पहल से चालू  सं २०१५ से  किया गया था| इसका मुख्या उद्द्श्या सरगुजा का समाचार एकत्रित कर के लोगो तक पहुंचना है , जिसके वजह से  लोगो को सरगुजा मई होने वाले साडी गतिविदियो के बारे मे पता चलता रहे | <br />
+                        सरगुजा ऑनलाइन मे दिया हुआ एक एक  समाचार  हमारे सम्पदाको के दयार दिया गया है
+
+                    </p>
+
+                    <p class="f1-s-11 cl6 p-b-25">
+                        इसके विस्तार पूर्वक फिर इसको कुछ और श्रेणी मे बाटा गया जिसमे सरगुजा के आस पास के सरे जिलों को भी इसमे शामिल किया गया और और उन लोगो की जानकारी एकत्रित करने ताकि लोगो को और भी किसी मीडिया के ऊपर आश्रित न रहने पड़े और एक जगह से ही साडी जानकारी मिल सके.  हमारी सखाये और कही भी उपलब्भद नहीं है और सरगुजा ऑनलाइन स्वत्रंत और निष्पक्ष काम करने मई भरोसा रखती है | हमसे मिलने, विगयपन देने के लिए आप दिए गए रजिस्टर्ड पते पर समपर्क कर सकते हैं |
+
+                        <br />
+                        <br />
+                        <i class="fa fa-address-card" style="font-size:24px;color:aquamarine"></i> &nbsp;&nbsp;
+                        वित्रामपुर, सूरजपुर, <br /> छत्तीसगढ़-497226
+                        <br />
+                        <br />
+                        <i class="fa fa-envelope" style="color:#ff6a00"></i> &nbsp;&nbsp; ramashanker62@gmail.com <br />
+                        <i class="fa fa-envelope" style="color:#ff6a00"></i> &nbsp;&nbsp;sargujaonline@gmail.com
+                    </p>
+                </div>
+                <br />
+                @Html.Partial("_bannerthird")
+            </div>
+
+            <!-- Sidebar -->
+
+
+            <div class="col-md-5 col-lg-4 p-b-30">
+                <div class="p-l-10 p-rl-0-sr991 p-t-5">
+                    <!-- Popular Posts -->
+                    @Html.Partial("_IMostPoular", Model.AllNews)
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

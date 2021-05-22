@@ -1,0 +1,48 @@
+﻿@model News.Datamodel.NewsUserVM
+
+@{
+    ViewBag.Title = "टैग";
+    ViewBag.Keyword = "Chhattisgarh Sarguja, Sarguja Online, Sarguja University, Sarguja News, सरगुजा ऑनलाइन, सरगुजा ";
+    ViewBag.Description = "Get information about Sarguja " + ViewBag.Category  + ", you can get the news of " + ViewBag.Category + "  and  news of District near about Sarguja.";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="bg0 p-t-20 p-b-35">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8 p-b-20">
+                <!-- Page heading -->
+                <div class="container p-t-20 p-b-10">
+                    <h2 class="f1-l-1 cl2">
+                        @ViewBag.Category
+                    </h2>
+                </div>
+                @Html.Partial("_breadcrum")
+
+                @Html.Partial("_CategoryTopSix", Model.AllNews)
+                <br />
+                @Html.Partial("_thirdbanner")
+                <br />
+
+                @Html.Partial("_allcategorypost", Model.AllNews)
+            </div>
+            <div class="col-md-10 col-lg-4">
+                <div class="p-l-10 p-rl-0-sr991 p-b-20">
+
+                    <!--Top News -->
+                    @Html.Partial("_IMostPoular", Model.AllNews)
+                    <!-- Tag -->
+                    @Html.Partial("_ITags", Model.Tags)
+
+                    <!-- Subscribe -->
+                    @*Html.Partial("_StayConnected")*@
+
+                    @Html.Partial("_Secondbanner")
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+

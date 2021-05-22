@@ -1,0 +1,73 @@
+﻿@model List<News.Datamodel.NewsUserModel>
+
+<div class="row">
+    <div class="col-sm-6 p-r-25 p-r-15-sr991">
+        <!-- Item post -->
+        <div class="m-b-30">
+            <a href="@Url.Action("details", new { newsId = Model.FirstOrDefault().NewsId})" class="wrap-pic-w hov1 trans-03">
+                <img src="@Model.FirstOrDefault().NewsImage" alt="IMG">
+            </a>
+
+            <div class="p-t-20">
+                <h5 class="p-b-5">
+                    <a href="@Url.Action("details", new { newsId = Model.FirstOrDefault().NewsId})" class="f1-m-3 cl2 hov-cl10 trans-03">
+                        @Model.FirstOrDefault().NewsSubject
+                    </a>
+                </h5>
+
+                <span class="cl8">
+                    <a href="@Url.Action("Category", new { categoryname = Model.FirstOrDefault().Catergory})" class="f1-s-4 cl8 hov-cl10 trans-03">
+                        @Model.FirstOrDefault().Catergory
+                    </a>
+
+                    <span class="f1-s-3 m-rl-3">
+                        -
+                    </span>
+
+                    <span class="f1-s-3">
+                        @String.Format("{0:dd MMM}", Model.FirstOrDefault().CreatedDate)
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+    @{int SarCount = 0; }
+    <div class="col-sm-6 p-r-25 p-r-15-sr991">
+
+        @foreach (var tn in Model)
+        {
+            SarCount++;
+            if (SarCount > 1 && SarCount < 5)
+            {
+                <!-- Item post -->
+                <div class="flex-wr-sb-s m-b-30">
+                    <a href="@Url.Action("details", new { newsId = tn.NewsId})" class="size-w-1 wrap-pic-w hov1 trans-03">
+                        <img src="@tn.NewsImage" alt="IMG">
+                    </a>
+                    <div class="size-w-2">
+                        <h5 class="p-b-5">
+                            <a href="@Url.Action("details", new { newsId = tn.NewsId})" class="f1-s-5 cl3 hov-cl10 trans-03">
+                                @tn.NewsSubject
+                            </a>
+                        </h5>
+
+                        <span class="cl8">
+                            <a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
+                                @tn.Catergory
+                            </a>
+
+                            <span class="f1-s-3 m-rl-3">
+                                -
+                            </span>
+
+                            <span class="f1-s-3">
+                                @String.Format("{0:dd MMM}", tn.CreatedDate)
+                            </span>
+                        </span>
+                    </div>
+                </div>
+
+            }
+        }
+    </div>
+</div>

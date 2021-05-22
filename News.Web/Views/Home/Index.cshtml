@@ -1,0 +1,102 @@
+﻿@model News.Datamodel.NewsUserVM
+@{
+    ViewBag.Title = "Sarguja News, सरगुजा ऑनलाइन Details";
+    ViewBag.Keyword = "Chhattisgarh Sarguja, Sarguja Online, Sarguja University, Sarguja News, सरगुजा ऑनलाइन, सरगुजा ";
+    ViewBag.Description = "Sarguja Online (सरगुजा ऑनलाइन) get information about Sarguja and Sarguja News. You can get the News of Sarguja and  News of  other District near about Sarguja along with sarguja News. Sarguja Online its a platform for you to get live update about your Own City Sarguja";
+}
+
+
+<!-- Headline -->
+<div class="container" title="Surguja News">
+    <div class="bg0 flex-wr-sb-c p-rl-20 p-tb-8">
+
+
+        <!---Sarguja News Tranding-->
+        @Html.Partial("_TrandingNews", Model.AllNews)
+
+        @*<div class="pos-relative size-a-2 bo-1-rad-22 of-hidden bocl11 m-tb-6">
+            <input class="f1-s-1 cl6 plh9 s-full p-l-25 p-r-45" type="text" name="search" placeholder="Search">
+            <button class="flex-c-c size-a-1 ab-t-r fs-20 cl2 hov-cl10 trans-03">
+                <i class="zmdi zmdi-search"></i>
+            </button>
+        </div>*@
+    </div>
+</div>
+
+<iframe src="https://bwidget.crictimes.org/" style="width:100%;min-height: 250px;" frameborder="0" scrolling="yes"></iframe>
+
+<!-- Sarguja News Feature pots,  Sarguja University-->
+@Html.Partial("_FeaturePost", Model.AllNews)
+
+
+
+<!--Sarguja  Weather -->
+
+@Html.Partial("_IWeather")
+
+<!-- Post -->
+<section class="bg0 p-t-20" title="Sarguja Online">
+    <div class="container" title="Sarguja News">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                <div class="p-b-20">
+                    <!-- District -->
+                    @Html.Partial("_WindowDistrict", Model.AllNews)
+
+                    <!-- different Places विभिन्न स्थानों -->
+                    @Html.Partial("_differentPlaces", Model.AllNews)
+                    <!--  Others अन्य  -->
+                    @*@Html.Partial("_Window_other")*@
+
+                    <!-- Sarguja Banner Sarguja University-->
+                    @Html.Partial("_Bannerfourth")
+
+                </div>
+            </div>
+
+            <div class="col-md-10 col-lg-4" title="Sarguja University">
+                <div class="p-l-10 p-rl-0-sr991 p-b-20">
+                    <iframe id="moneywiz_widget" name="moneywiz_widget" src="//money.rediff.com/widget/moneywizwidget" scrolling="no" frameborder="0" marginHeight="200" marginWidth="0" style="width:240px; height:161px"></iframe>
+                    <br />
+
+                    <!--Most poular  -->
+                    @Html.Partial("_IMostpoular", Model.AllNews)
+
+                    <!-- Share market widget-->
+                    <!-- Sarguja second Banner  -->
+                    @Html.Partial("_bannerSecond")
+
+                  
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Latest -->
+<section class="bg0 p-t-60 p-b-35">
+    <div class="container">
+        <div class="row justify-content-center">
+            @Html.Partial("_latestArticle", Model.AllNews)
+
+            <div class="col-md-10 col-lg-4">
+                <div class="p-l-10 p-rl-0-sr991 p-b-20" title="सरगुजा ऑनलाइन">
+                    <!-- Tag -->
+                    @Html.Partial("_ITags", Model.Tags)
+                    <!-- Subscribe -->
+                    @*@Html.Partial("_Isubscribe")*@
+
+                    <!-- stay connected  title="सरगुजा ऑनलाइन"-->
+                    @*@Html.Partial("_StayConnected")*@
+
+                    <!--Twitter -->
+                    <a class="twitter-timeline" data-width="350" data-height="900" data-theme="light" href="https://twitter.com/satyarathore05/lists/sargujaonline?ref_src=twsrc%5Etfw">A Twitter List by Sarguja Online5</a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

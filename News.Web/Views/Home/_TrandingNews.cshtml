@@ -1,0 +1,19 @@
+﻿@model List<News.Datamodel.NewsUserModel>
+
+<div class="f2-s-1 p-r-30 size-w-0 m-tb-6 flex-wr-s-c">
+    <span class="text-uppercase cl2 p-r-8">
+        ट्रेंडिंग न्यूज़ :
+    </span>
+
+    <span class="dis-inline-block cl6 slide100-txt pos-relative size-w-0" data-in="fadeInDown" data-out="fadeOutDown">
+
+        @foreach (var tn in Model.Where(m => m.NewsType == "ScrollNews"))
+        {
+        <span class="dis-inline-block slide100-txt-item animated visible-false">
+            <a href="@Url.Action("details", new { newsId = tn.NewsId })">
+                @tn.NewsSubject
+            </a>
+        </span>
+        }
+    </span>
+</div>

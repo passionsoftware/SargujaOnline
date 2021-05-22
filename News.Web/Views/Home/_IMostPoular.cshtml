@@ -1,0 +1,28 @@
+﻿@model List<News.Datamodel.NewsUserModel>
+<div>
+    <div class="how2 how2-cl4 flex-s-c">
+        <h3 class="f1-m-2 cl3 tab01-title">
+            सबसे लोकप्रिय
+        </h3>
+    </div>
+
+    <ul class="p-t-35">
+
+        @{int count = 0; }
+        @foreach (var tn in Model.Where(m => m.NewsType == "MostViewd"))
+        {
+            count = count + 1;
+            <li class="flex-wr-sb-s p-b-22">
+
+                <div class="size-a-8 flex-c-c borad-3 size-a-8 bg9 f1-m-4 cl0 m-b-6" title="Sarguja News">
+                    @count
+                </div>
+
+                <a href="@Url.Action("details", new { newsId = tn.NewsId})" class="size-w-3 f1-s-7 cl3 hov-cl10 trans-03">
+                    @tn.NewsSubject
+                </a>
+            </li>
+        }
+
+    </ul>
+</div>

@@ -1,0 +1,91 @@
+﻿@model News.Datamodel.NewsUserVM
+
+@{
+    ViewBag.Title = "सम्पर्क";
+    ViewBag.Keyword = "Chhattisgarh Sarguja, Sarguja Online, Sarguja University, Sarguja News, सरगुजा ऑनलाइन, सरगुजा ";
+    ViewBag.Description = "Get information about Sarguja, you can get the news of Sarguja and  news of District near about Sarguja.";
+}
+
+
+<!-- Page heading -->
+<div class="container p-t-4 p-b-10">
+    <h2 class="f1-l-1 cl2">
+        <br />
+        संपर्क जानकारी
+    </h2>
+</div>
+
+<!-- Breadcrumb -->
+<div class="container">
+    <div class="headline bg0 flex-wr-sb-c p-rl-20 p-tb-8">
+        <div class="f2-s-1 p-r-10 m-tb-6">
+            <a href="@Url.Action("index")" class="breadcrumb-item f1-s-3 cl9">
+
+                होम
+            </a>
+
+            <span class="breadcrumb-item f1-s-3 cl9">
+                सम्पर्क
+            </span>
+        </div>
+
+        @*<div class="pos-relative size-a-2 bo-1-rad-22 of-hidden bocl11 m-tb-6">
+                <input class="f1-s-1 cl6 plh9 s-full p-l-25 p-r-45" type="text" name="search" placeholder="Search">
+                <button class="flex-c-c size-a-1 ab-t-r fs-20 cl2 hov-cl10 trans-03">
+                    <i class="zmdi zmdi-search"></i>
+                </button>
+            </div>*@
+    </div>
+</div>
+
+<!-- Content -->
+<section class="bg0 p-b-10" style="padding-right:40px">
+    <div class="container" style="padding-LEFT:60px">
+        <div class="row justify-content-center">
+            <div class="col-md-7 col-lg-8 p-b-10">
+                <div class="p-r-10 p-r-0-sr991">
+
+                    <strong style="font-size:20px">संपादक : रमा शंकर पाण्डेय</strong>
+                    <hr />
+                    <br />
+                    <i class="fa fa-address-card" style="font-size:24px;color:aquamarine"></i> &nbsp;&nbsp;
+                    वित्रामपुर, सूरजपुर, <br /> छत्तीसगढ़-497226
+                    <br />
+                    <br />
+                    <i class="fa fa-envelope" style="color:#ff6a00"></i> &nbsp;&nbsp; ramashanker62@gmail.com <br />
+                    <i class="fa fa-envelope" style="color:#ff6a00"></i> &nbsp;&nbsp;sargujaonline@gmail.com
+                    <br />
+
+                    <i class="fa fa-phone" style="color:#0094ff"></i> &nbsp;&nbsp;+91-9424190062 <br />
+                    <i class="fa fa-phone" style="color:#0094ff"></i> &nbsp;&nbsp;+91-7000724365
+                    <hr />
+                    <hr />
+
+                    <strong style="font-size:20px">साइट प्रबंधक : अभय सिंह</strong>
+                    <hr />
+                    <br />
+                    <i class="fa fa-address-card" style="font-size:24px;color:aquamarine"></i> &nbsp;&nbsp;
+                    वित्रामपुर, सूरजपुर, <br /> छत्तीसगढ़-497226
+                    <br />
+                    <br />
+                    <i class="fa fa-envelope" style="color:#ff6a00"></i> &nbsp;&nbsp; abhay.ask@gmail.com <br />
+                    <br />
+
+                    <i class="fa fa-phone" style="color:#0094ff"></i> &nbsp;&nbsp;+91-7415769625 <br />
+                </div>
+                <br />
+                <!-- Sarguja contact  Banner -->
+                @Html.Partial("_BannerFive")
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-md-5 col-lg-4 p-b-20">
+                <div class="p-l-10 p-rl-0-sr991">
+                    <!-- Popular Posts -->
+                    @Html.Partial("_IMostPoular", Model.AllNews)
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

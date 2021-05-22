@@ -1,0 +1,108 @@
+﻿@model News.Datamodel.NewsUserVM
+
+@{
+    ViewBag.Title = "वर्ग";
+    ViewBag.Keyword = "Chhattisgarh Sarguja, Sarguja Online, Sarguja University, Sarguja News, सरगुजा ऑनलाइन, सरगुजा " + ViewBag.Category;
+    ViewBag.Description = "Get information about Sarguja " + ViewBag.Category + ", you can get the news of " + ViewBag.Category + "  and  news of District near about Sarguja.";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="bg0 p-t-10 p-b-10">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8 p-b-5">
+
+                <!-- Page heading -->
+                <div class="container p-t-2 p-b-2">
+                    <h2 class="f1-l-1 cl2">
+                        @ViewBag.Category
+                    </h2>
+                </div>
+                @Html.Partial("_breadcrum")
+
+                @Html.Partial("_CategoryTopSix", Model.AllNews)
+
+                @*@if (ViewBag.Category == "धर्म-संस्कृति")
+                    {
+                        <script type="text/javascript" src="//100widgets.com/js_data.php?id=204"></script>
+                    }*@
+
+
+                @if (ViewBag.Category == "व्यापार")
+                {
+                    <div style="height:400px">
+                        <!-- TradingView Widget BEGIN -->
+                        <!-- TradingView Widget BEGIN -->
+                        <!-- TradingView Widget BEGIN -->
+                        <!-- TradingView Widget BEGIN -->
+                        <div class="tradingview-widget-container" style="height:100%">
+                            <div id="tradingview_b478e" style="height:100%"></div>
+                            <div class="tradingview-widget-copyright" style="height:100%"><a href="https://in.tradingview.com/symbols/BSE-SENSEX/" rel="noopener" target="_blank"><span class="blue-text">SENSEX Chart</span></a> by TradingView</div>
+                            <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                            <script type="text/javascript">
+                                new TradingView.widget(
+                                    {
+                                        "autosize": true,
+                                        "symbol": "BSE:SENSEX",
+                                        "interval": "D",
+                                        "timezone": "Etc/UTC",
+                                        "theme": "light",
+                                        "style": "1",
+                                        "locale": "in",
+                                        "toolbar_bg": "#f1f3f6",
+                                        "enable_publishing": false,
+                                        "withdateranges": true,
+                                        "hide_side_toolbar": false,
+                                        "allow_symbol_change": true,
+                                        "container_id": "tradingview_b478e"
+                                    }
+                                );
+                            </script>
+                        </div>
+                        <!-- TradingView Widget END -->
+                        <!-- TradingView Widget END -->
+                        <!-- TradingView Widget END -->
+                        <!-- TradingView Widget END -->
+                        <!-- TradingView Widget END -->
+                    </div>
+                    <!-- TradingView Widget END -->
+                    <!-- TradingView Widget END -->
+                    <!-- TradingView Widget END -->
+                }
+
+                <br />
+                @Html.Partial("_BannerThird")
+                <br />
+
+                @Html.Partial("_allcategorypost", Model.AllNews)
+            </div>
+            <div class="col-md-10 col-lg-4">
+                <div class="p-l-10 p-rl-0-sr991 p-b-20">
+                    @if (ViewBag.Category == "व्यापार")
+                    {
+                        <iframe id="moneywiz_widget" name="moneywiz_widget" src="//money.rediff.com/widget/moneywizwidget" scrolling="no" frameborder="0" marginHeight="200" marginWidth="0" style="width:240px; height:161px"></iframe>
+                        <br />
+                        @Html.Partial("_DowzonesWidget")
+                    }
+                    @if (ViewBag.Category == "धर्म-संस्कृति")
+                    {
+                        @*<script type="text/javascript" src="//100widgets.com/js_data.php?id=204"></script>*@
+                        <iframe src="https://piushtrivedi.neocities.org/hindi_astrology_google_gadget_part_1_updated_html2.html" height="250" width="500" scrolling="no" frameborder="0"></iframe>
+                    }
+                    <!-- Tag -->
+                    @Html.Partial("_ITags", Model.Tags)
+
+                    <!--Top News -->
+                    @Html.Partial("_IMostPoular", Model.AllNews)
+
+                    <!-- Subscribe -->
+                    @*Html.Partial("_StayConnected")*@
+
+                    @Html.Partial("_BannerSecond")
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

@@ -1,0 +1,79 @@
+﻿@model List<News.Datamodel.NewsUserModel>
+
+<div class="tab01 p-b-20">
+    <div class="tab01-head how2 how2-cl2 bocl12 flex-s-c m-r-10 m-r-0-sr991">
+        <!-- Brand tab -->
+        <h3 class="f1-m-2 cl13 tab01-title">
+            @*विभिन्न*@ स्थान
+        </h3>
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            @if (Model.Where(m => m.NewsType == "CGSpecial").Count() > 0)
+            {
+                <li class="nav-item">
+                    <a class="nav-link " data-toggle="tab" href="#tab2-1" role="tab">छत्तीसगढ़</a>
+                </li>
+            }
+
+            @if (Model.Where(m => m.NewsType == "RajyaSpecial").Count() > 0)
+            {
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#tab2-2" role="tab">राज्य</a>
+                </li>
+            }
+            @if (Model.Where(m => m.NewsType == "NationalSpecial").Count() > 0)
+            {
+                <li class="nav-item active">
+                    <a class="nav-link" data-toggle="tab" href="#tab2-3" role="tab">नेशनल</a>
+                </li>
+            }
+            @if (Model.Where(m => m.NewsType == "IntSpecial").Count() > 0)
+            {
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#tab2-4" role="tab">अंतरराष्ट्रीय</a>
+                </li>
+            }
+
+        </ul>
+
+    </div>
+
+
+    <!-- Tab panes -->
+    <div class="tab-content p-t-35">
+        <!-- - -->
+        <div class="tab-pane fade" id="tab2-1" role="tabpanel">
+            @if (Model.Where(m => m.NewsType == "CGSpecial").Count() > 0)
+            {
+                @Html.Partial("_WindownChild", Model.Where(m => m.NewsType == "CGSpecial").ToList())
+            }
+            </div>
+
+        <!-- - -->
+        <div class="tab-pane fade" id="tab2-2" role="tabpanel">
+            @if (Model.Where(m => m.NewsType == "RajyaSpecial").Count() > 0)
+            {
+                @Html.Partial("_WindownChild", Model.Where(m => m.NewsType == "RajyaSpecial").ToList())
+            }
+        </div>
+
+        <!-- - -->
+        <div class="tab-pane fade show active" id="tab2-3" role="tabpanel">
+            @if (Model.Where(m => m.NewsType == "NationalSpecial").Count() > 0)
+            {
+                @Html.Partial("_WindownChild", Model.Where(m => m.NewsType == "NationalSpecial").ToList())
+            }
+        </div>
+
+        <!-- - -->
+        <div class="tab-pane fade" id="tab2-4" role="tabpanel">
+            @if (Model.Where(m => m.NewsType == "IntSpecial").Count() > 0)
+            {
+                @Html.Partial("_WindownChild", Model.Where(m => m.NewsType == "IntSpecial").ToList())
+            }
+
+        </div>
+    </div>
+</div>

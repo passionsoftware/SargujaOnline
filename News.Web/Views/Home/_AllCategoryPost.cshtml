@@ -1,0 +1,95 @@
+﻿@model List<News.Datamodel.NewsUserModel>
+
+
+<ul>
+    @foreach (var tn in Model.Where(m => m.NewsType == "RemainAll"))
+    {
+        <li class="flex-wr-sb-s p-b-20">
+            <a href="@Url.Action("details", new { newsId = tn.NewsId})" class="size-w-4 wrap-pic-w hov1 trans-03">
+                <img src="../@tn.NewsImage" alt="IMG">
+            </a>
+
+            <div class="size-w-5">
+                <h6 class="p-b-5">
+                    <a href="@Url.Action("details", new { newsId = tn.NewsId})" class="f1-s-5 cl1 hov-cl10 trans-03" style="font-size:24px">
+                       @tn.NewsSubject
+                    </a>
+                </h6>
+
+                <span class="f1-s-3 cl6">
+                    @String.Format("{0:dd MMM}", tn.CreatedDate)
+                </span>
+            </div>
+        </li>
+
+    }
+        @*<li class="flex-wr-sb-s p-b-20">
+            <a href="#" class="size-w-4 wrap-pic-w hov1 trans-03">
+                <img src="~/images/popular-post-02.jpg" alt="IMG">
+            </a>
+
+            <div class="size-w-5">
+                <h6 class="p-b-5">
+                    <a href="#" class="f1-s-5 cl1 hov-cl10 trans-03" style="font-size:24px">
+                        Lorem ipsum dolor sit amet, consectetur
+                    </a>
+                </h6>
+
+                <span class="f1-s-3 cl6">
+                    Feb 16
+                </span>
+            </div>
+        </li>
+        <li class="flex-wr-sb-s p-b-20">
+            <a href="#" class="size-w-4 wrap-pic-w hov1 trans-03">
+                <img src="~/images/popular-post-02.jpg" alt="IMG">
+            </a>
+
+            <div class="size-w-5">
+                <h6 class="p-b-5">
+                    <a href="#" class="f1-s-5 cl1 hov-cl10 trans-03" style="font-size:24px">
+                        Lorem ipsum dolor sit amet, consectetur
+                    </a>
+                </h6>
+
+                <span class="f1-s-3 cl6">
+                    Feb 16
+                </span>
+            </div>
+        </li>
+        <li class="flex-wr-sb-s p-b-20">
+            <a href="#" class="size-w-4 wrap-pic-w hov1 trans-03">
+                <img src="~/images/popular-post-02.jpg" alt="IMG">
+            </a>
+
+            <div class="size-w-5">
+                <h6 class="p-b-5">
+                    <a href="#" class="f1-s-5 cl1 hov-cl10 trans-03" style="font-size:24px">
+                        Lorem ipsum dolor sit amet, consectetur
+                    </a>
+                </h6>
+
+                <span class="f1-s-3 cl6">
+                    Feb 16
+                </span>
+            </div>
+        </li>
+
+        <li class="flex-wr-sb-s p-b-20">
+            <a href="#" class="size-w-4 wrap-pic-w hov1 trans-03">
+                <img src="~/images/popular-post-03.jpg" alt="IMG">
+            </a>
+
+            <div class="size-w-5">
+                <h6 class="p-b-5">
+                    <a href="#" class="f1-s-5 cl1 hov-cl10 trans-03" style="font-size:24px">
+                        Suspendisse dictum enim quis imperdiet auctor
+                    </a>
+                </h6>
+
+                <span class="f1-s-3 cl6">
+                    Feb 15
+                </span>
+            </div>
+        </li>*@
+    </ul>
